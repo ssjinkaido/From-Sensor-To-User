@@ -58,14 +58,21 @@ The main components of the system are:
 - Machine learning/ Deep Learning algorithms for processing and analyzing data.
 
 Below illustrates two diagrams of the systems:
+<div align="center">
 ![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/components_diagram.png)
+</div>
 
+<div align="center">
 *Components diagram of the system*
+</div>
 
+<div align="center">
 ![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png)
+</div>
 
+<div align="center">
 *Overall sequence diagram of the system*
-
+</div>
 
 # 3. Implementation details
 ## 3.1 Explanation of sensor selection and their specific roles in the system
@@ -89,10 +96,13 @@ We connect the PMS5003 sensor to the ESP32 as follows:
 - PMS5003 TX (Pin 4) to ESP32 RX (e.g., GPIO16)
 - PMS5003 RX (Pin 5) to ESP32 TX (e.g., GPIO17)
 
-
+<div align="center">
 ![Sensor Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/sensor_sequence_diagram.png)
+</div>
 
+<div align="center">
 *Sequence diagram that shows how to connect sensors to ESP32*
+</div>
 
 ## 3.2 Describe the data processing techniques used to make informed decisions based on the collected data
 
@@ -105,10 +115,12 @@ There are several ways to preprocess the data collected from sensors. Below are 
 - Sensor fusion: If multiple sensors measure the same air quality parameter, we can combine their values to produce a more accurate and trustworthy estimate. Sensor fusion techniques include weighted averaging, Kalman filtering, and Bayesian fusion.
 \end{itemize}
 
-![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/process_sequence_diagram.png) 
+<div align="center">
+![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/process_sequence_diagram.png) </div>
 
-*Sequence diagram that shows how to extract and process the data*
-
+<div align="center">
+<center> *Sequence diagram that shows how to extract and process the data* </center>
+</div>
 
 ## 3.3 Discuss communication protocols and technologies related to data transmission between components
 
