@@ -51,7 +51,7 @@ In this report, I will design a smart air quality monitoring and control system 
 
 The main components of the system are: 
 
-- Air quality sensors: PMS5003 to measure dust matter, and MH-Z19B NDIR CO$_{2}$ to measure CO$_{2}$ 
+- Air quality sensors: PMS5003 to measure dust matter, and MH-Z19B NDIR CO2 to measure CO2
  concentration.
 - Microcontrollers: ESP32.
 - Firebase for data storage and retrieval.
@@ -67,18 +67,17 @@ Below illustrates two diagrams of the systems:
 ## Explanation of sensor selection and their specific roles in the system
 In the air quality monitoring system, we will use two sensors to measure the concentrations of CO2 and particulate matter. Here is an explanation of each sensor and its function.
 
-### MH-Z19B NDIR CO$_{2}$ and PMS5003 Sensor
-This MH-Z19B NDIR CO$_{2}$ sensor can measure CO$_{2}$ concentration between 0 to 5000ppm. It has average current < 60mA, the output signal is UART. It can work in temperature between 0 to $50^\circ C$. The dimension is small: $33 mm\times 20 mm\times 9 mm$. It is stable with lifespan of at least 5 years. The price is around 20 to 40 dollars. 
+### MH-Z19B NDIR CO2 and PMS5003 Sensor
+This MH-Z19B NDIR CO2 sensor can measure CO2 concentration between 0 to 5000ppm. It has average current < 60mA, the output signal is UART. It can work in temperature between 0 to 50°C The dimension is small: $33 mm x 20 mm x 9 mm$. It is stable with lifespan of at least 5 years. The price is around 20 to 40 dollars. 
 
 We connect the MH-Z19B sensor to the ESP32 as follows:
 - Connect the sensor's V+ or Vin pin to the 5V pin on the ESP32.
 - Connect the sensor's GND pin to the GND pin on the ESP32.
 - Connect the sensor's TX pin to the RX pin (e.g., D0 or GPIO3 for ESP32) on the microcontroller.
 - Connect the sensor's RX pin to the TX pin (e.g., D1 or GPIO1 for ESP32) on the microcontroller.
-\end{itemize}
 
 
-The PMS5003 sensor measures the concentration of particulate matter (PM) in the air. It can detect PM1.0, PM2.5, and PM10 particles. It supplies voltage from 4.5V to 5.5V. The power consumption is below 100mA. It can work in temperature between -100 to $60^\circ C$. The dimension is small: $50 mm\times 38 mm\times 21 mm$. The price is around 23 dollars. 
+The PMS5003 sensor measures the concentration of particulate matter (PM) in the air. It can detect PM1.0, PM2.5, and PM10 particles. It supplies voltage from 4.5V to 5.5V. The power consumption is below 100mA. It can work in temperature between -100 to 60°C. The dimension is small: $50 mm\times 38 mm\times 21 mm$. The price is around 23 dollars. 
 
 We connect the PMS5003 sensor to the ESP32 as follows:
 - PMS5003 VCC (Pin 1) to ESP32 5V
@@ -195,7 +194,7 @@ Since time is limited, I do not have time to build a Flutter app to read and vie
 # Conclusion
 ## Evaluate the designed system's overall effectiveness in meeting real- world applications' needs
 
-The designed system for measuring air quality with sensors and storing data on Firebase for analysis and visualization via a mobile app is a partial simulation of real-world applications. The system provides real-time air quality monitoring; the sensors can precisely measure dust and Co$_{2}$ concentration. The collected data is then stored in Firebase for further processing and analysis. The user-friendly interface of the mobile application makes it simple for users to access and observe air quality data from any location. Users can view historical, real-time, and visualizations of air quality data to obtain insights and make educated decisions regarding the environment. Based on the data, environmentalists or the government can make informed decisions and develop effective solutions to address the problems caused by bad air quality. 
+The designed system for measuring air quality with sensors and storing data on Firebase for analysis and visualization via a mobile app is a partial simulation of real-world applications. The system provides real-time air quality monitoring; the sensors can precisely measure dust and CO2 concentration. The collected data is then stored in Firebase for further processing and analysis. The user-friendly interface of the mobile application makes it simple for users to access and observe air quality data from any location. Users can view historical, real-time, and visualizations of air quality data to obtain insights and make educated decisions regarding the environment. Based on the data, environmentalists or the government can make informed decisions and develop effective solutions to address the problems caused by bad air quality. 
 
 ## Comment on the advantages, limitations, and scalability of the system
 
