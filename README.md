@@ -59,7 +59,7 @@ The main components of the system are:
 Below illustrates two diagrams of the systems:
 ![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/components_diagram.png)
 
-![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/images/overall_sequence_diagram.png)
+![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png)
 
 # Implementation details
 ## Explanation of sensor selection and their specific roles in the system
@@ -114,6 +114,79 @@ Wi-Fi: This protocol is used for communication between the ESP32 microcontroller
 REST API: This protocol is used to extract data from the Firebase Realtime Database and convert it to a CSV file format for further processing. 
 
 # Testing and Validation
+
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_MHZ19B.h>
+#include <SoftwareSerial.h>
+#include <PMS.h>
+#include <WiFi.h>
+#include <FirebaseESP32.h>
+
+#define FIREBASE_HOST "airquality-33ba6.firebaseio.com"
+#define FIREBASE_AUTH "private_token"
+
+#define WIFI_SSID "Xuan Minh"
+#define WIFI_PASSWORD "ngoctung1970"
+
+#define MHZ19B_RX 16
+#define MHZ19B_TX 17
+
+SoftwareSerial mhzSerial(MHZ19B_RX, MHZ19B_TX);
+Adafruit_MHZ19B mhz;
+
+PMS pms(Serial1);
+WiFiClient client;
+FirebaseData firebaseData;
+
+void setup() {
+  Serial.begin(9600);
+
+  mhzSerial.begin(9600, SERIAL_8N1, MHZ19B_RX, MHZ19B_TX);
+  mhz.begin(mhzSerial);
+
+  pms.passiveMode();
+  Serial1.begin(9600);
+
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+  }
+
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+}
+
+void loop() {
+  if (mhz.isReady()) {
+    float co2 = mhz.getCO2();
+    Serial.print("CO2 (ppm): ");
+    Serial.println(co2);
+    
+    Firebase.setFloat(firebaseData, "/co2", co2);
+    if (firebaseData.dataAvailable()) {
+      Serial.println(firebaseData.responseCode());
+      Serial.println(firebaseData.payload());
+    }
+  }
+
+  if (pms.read()) {
+    float pm25 = pms.getPM2_5();
+    float pm10 = pms.getPM10();
+    Serial.print("PM2.5 (ug/m3): ");
+    Serial.println(pm25);
+    Serial.print("PM10 (ug/m3): ");
+    Serial.println(pm10);
+    
+    Firebase.setFloat(firebaseData, "/pm25", pm25);
+    Firebase.setFloat(firebaseData, "/pm10", pm10);
+    if (firebaseData.dataAvailable()) {
+      Serial.println(firebaseData.responseCode());
+      Serial.println(firebaseData.payload());
+    }
+  }
+
+  delay(1000);
+}
 
 Since time is limited, I do not have time to build a Flutter app to read and view historical data, as well as visualize data in the graph.
 # Conclusion
