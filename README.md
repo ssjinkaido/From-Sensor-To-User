@@ -114,6 +114,7 @@ Wi-Fi: This protocol is used for communication between the ESP32 microcontroller
 REST API: This protocol is used to extract data from the Firebase Realtime Database and convert it to a CSV file format for further processing. 
 
 # Testing and Validation
+This is the code to read data from 2 sensors:
 ```
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
