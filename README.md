@@ -64,10 +64,13 @@ Below illustrates two diagrams of the systems:
 <div align="center">
     Fig.1: Components diagram of the system
 </div>
+
 <p align="center">
    <img src="https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png">
-   <figcaption align="center">Fig.2: Overall sequence diagram of the system</figcaption>
 </p>
+<div align="center">
+    Fig.2: Overall sequence diagram of the system
+</div>
 
 # 3. Implementation details
 ## 3.1 Explanation of sensor selection and their specific roles in the system
@@ -93,8 +96,10 @@ We connect the PMS5003 sensor to the ESP32 as follows:
 
 <p align="center">
    <img src="https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/sensor_sequence_diagram.png">
-   <figcaption align="center">Fig.3: Sequence diagram that shows how to connect sensors to ESP32</figcaption>
 </p>
+<div align="center">
+    Fig.3: Sequence diagram that shows how to connect sensors to ESP32
+</div>
 
 ## 3.2 Describe the data processing techniques used to make informed decisions based on the collected data
 
@@ -109,8 +114,10 @@ There are several ways to preprocess the data collected from sensors. Below are 
 
 <p align="center">
    <img src="https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/process_sequence_diagram.png">
-   <figcaption align="center">Fig.4: Sequence diagram that shows how to extract and process the data</figcaption>
 </p>
+<div align="center">
+    Fig.4: Sequence diagram that shows how to extract and process the data
+</div>
 
 ## 3.3 Discuss communication protocols and technologies related to data transmission between components
 
