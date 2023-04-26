@@ -1,7 +1,6 @@
 
 # Report From Sensor to User
-### Nguyen Xuan Tung (M22.ICT.006)
-# I. Introduction
+# 1. Introduction
 ## 1.1 Describe the smart decision-making model's purpose and real-world applications, and explain the system's requirements and functionalities
 
 The smart decision-making model is a framework that integrates data, analytics, and human intuition to make informed decisions. The model seeks to enhance decision-making processes by reducing biases, boosting effectiveness overall, and increasing efficiency. Real-world applications of smart decision-making models include the healthcare, finance, manufacturing, transportation, and environmental management industries. Utilizing advanced technologies such as artificial intelligence (AI), machine learning (ML), and the Internet of Things (IoT) to process large volumes of data and derive actionable insights is common in these applications. The following are examples of real-world applications of smart decision-making models:
@@ -40,14 +39,14 @@ Functionalities:
 - Control illumination systems automatically based on occupancy and time of day
 - Remote monitoring and appliance control
 
-## Explain the importance of effectively collecting and processing data from sensors in the context of the course
+## 1.2 Explain the importance of effectively collecting and processing data from sensors in the context of the course
 
 There are multiple benefits when we effectively collect and process sensor data. Sensors accumulate vast quantities of data in real-time, which, when properly analyzed, can help people gain insights, identify patterns, and make data-driven decisions. The data collected by sensors can be used to make informed decisions that increase productivity and optimize performance. In certain instances, sensors are able to detect problems/damages before they become critical. Monitoring the data collected by sensors makes it possible to detect problems/damages early, allowing proactive measures to be taken to prevent more severe problems/damages.
 
-# System components and Architecture
+# 2. System components and Architecture
 In this report, I will design a smart air quality monitoring and control system that uses sensors to collect data, Firebase to store data, a mobile app to read data, analytic algorithms to process the data, and machine learning algorithms to predict air quality in the future. The reason behind this idea is to address the increasing concern over air pollution and its detrimental effects on our health. Poor air quality has been associated with various health issues, including respiratory diseases, cardiovascular disease, dementia, and even cancer. In addition, air pollution substantially affects the environment, contributing to problems such as acid rain, ozone depletion, and global warming. The objective of this system is to simulate a simple air quality monitoring system that provide real-time air quality data, analyze historical data as well as identify trends and patterns. 
 
-## Main components of the system
+## 2.1 Main components of the system
 
 The main components of the system are: 
 
@@ -63,11 +62,11 @@ Below illustrates two diagrams of the systems:
 
 ![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png)
 
-# Implementation details
-## Explanation of sensor selection and their specific roles in the system
+# 3. Implementation details
+## 3.1 Explanation of sensor selection and their specific roles in the system
 In the air quality monitoring system, we will use two sensors to measure the concentrations of CO2 and particulate matter. Here is an explanation of each sensor and its function.
 
-### MH-Z19B NDIR CO2 and PMS5003 Sensor
+### 3.1.1 MH-Z19B NDIR CO2 and PMS5003 Sensor
 This MH-Z19B NDIR CO2 sensor can measure CO2 concentration between 0 to 5000ppm. It has average current < 60mA, the output signal is UART. It can work in temperature between 0 to 50°C The dimension is small: $33 mm x 20 mm x 9 mm$. It is stable with lifespan of at least 5 years. The price is around 20 to 40 dollars. 
 
 We connect the MH-Z19B sensor to the ESP32 as follows:
@@ -88,7 +87,7 @@ We connect the PMS5003 sensor to the ESP32 as follows:
 
 ![Sensor Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/sensor_sequence_diagram.png)
 
-## Describe the data processing techniques used to make informed decisions based on the collected data
+## 3.2 Describe the data processing techniques used to make informed decisions based on the collected data
 
 There are several ways to preprocess the data collected from sensors. Below are the ways that I found most common when dealing with data like this.
 
@@ -102,7 +101,7 @@ There are several ways to preprocess the data collected from sensors. Below are 
 ![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/process_sequence_diagram.png)
 
 
-## Discuss communication protocols and technologies related to data transmission between components
+## 3.3 Discuss communication protocols and technologies related to data transmission between components
 
 My system has multiple communication protocols: Universal Asynchronous Receiver \\/Transmitter (UART), Serial Peripheral Interface (SPI), Wi-Fi, and REST API. I will illustrate how each component connects with the others through the protocols mentioned above. 
 
@@ -114,7 +113,7 @@ Wi-Fi: This protocol is used for communication between the ESP32 microcontroller
 
 REST API: This protocol is used to extract data from the Firebase Realtime Database and convert it to a CSV file format for further processing. 
 
-# Testing and Validation
+# 4. Testing and Validation
 This is the code to read data from 2 sensors:
 ```
 #include <Wire.h>
@@ -192,12 +191,12 @@ void loop() {
 ```
 The code for ML model can be seen here: proposed_model.py
 Since time is limited, I do not have time to build a Flutter app to read and view historical data, as well as visualize data in the graph.
-# Conclusion
-## Evaluate the designed system's overall effectiveness in meeting real- world applications' needs
+# 5. Conclusion
+## 5.1 Evaluate the designed system's overall effectiveness in meeting real- world applications' needs
 
 The designed system for measuring air quality with sensors and storing data on Firebase for analysis and visualization via a mobile app is a partial simulation of real-world applications. The system provides real-time air quality monitoring; the sensors can precisely measure dust and CO2 concentration. The collected data is then stored in Firebase for further processing and analysis. The user-friendly interface of the mobile application makes it simple for users to access and observe air quality data from any location. Users can view historical, real-time, and visualizations of air quality data to obtain insights and make educated decisions regarding the environment. Based on the data, environmentalists or the government can make informed decisions and develop effective solutions to address the problems caused by bad air quality. 
 
-## Comment on the advantages, limitations, and scalability of the system
+## 5.2 Comment on the advantages, limitations, and scalability of the system
 
 Advantages
 
@@ -215,7 +214,7 @@ Scalability
 - The system is divided into multiple components. It allows the system to incorporate new sensors and components without affecting the rest of the system. For instance, additional sensors for other pollutants, such as volatile organic compounds or ozone, can be easily added to the system.
 - The use of REST APIs for data transmission allows for simple integration with other systems or applications. This indicates that the system can communicate and exchange data with other systems or applications, which can enhance the system's functionality and make it more useful in a variety of contexts.
 
-## Propose improvements and further development for the system in the future
+## 5.3 Propose improvements and further development for the system in the future
 
 These are the ways that can be applied to improve the system:
 - We can integrate other sensors to measure other pollutants and compounds, such as volatile organic compounds (VOCs) and nitrogen dioxide (NO2). This could lead to an improvement in the system's ability to monitor air.
