@@ -58,8 +58,9 @@ The main components of the system are:
 - Machine learning/ Deep Learning algorithms for processing and analyzing data.
 
 Below illustrates two diagrams of the systems:
+{% figure caption:"Components diagram of the system" %}
 ![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/components_diagram.png "Components diagram of the system")
-
+{% endfigure %}
 ![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png "Overall sequence diagram of the system")
 
 # 3. Implementation details
