@@ -61,8 +61,9 @@ Below illustrates two diagrams of the systems:
 <p align="center">
   <img src="https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/components_diagram.png">
 </p>
-<figcaption align="center">Fig.1: Components diagram of the system</figcaption>
-
+<div align="center">
+    Fig.1: Components diagram of the system
+</div>
 <p align="center">
    <img src="https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/overall_sequence_diagram.png">
    <figcaption align="center">Fig.2: Overall sequence diagram of the system</figcaption>
