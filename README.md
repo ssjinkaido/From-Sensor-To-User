@@ -190,6 +190,7 @@ void loop() {
   delay(1000);
 }
 ```
+The code for ML model can be seen here: proposed_model.py
 Since time is limited, I do not have time to build a Flutter app to read and view historical data, as well as visualize data in the graph.
 # Conclusion
 ## Evaluate the designed system's overall effectiveness in meeting real- world applications' needs
