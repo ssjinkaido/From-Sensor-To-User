@@ -57,12 +57,9 @@ The main components of the system are:
 - Machine learning/ Deep Learning algorithms for processing and analyzing data.
 
 Below illustrates two diagrams of the systems:
-    \includegraphics[width = \textwidth, keepaspectratio]{images/components_diagram.png}
-    \caption{Overall components diagram of the system}
+![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/components_diagram.png)
 
-    \includegraphics[width = \textwidth, keepaspectratio]{images/overall_sequence_diagram.png}
-    \caption{Overall sequence diagram of the system}
-
+![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/overall_sequence_diagram.png)
 
 # Implementation details
 ## Explanation of sensor selection and their specific roles in the system
@@ -87,11 +84,8 @@ We connect the PMS5003 sensor to the ESP32 as follows:
 - PMS5003 TX (Pin 4) to ESP32 RX (e.g., GPIO16)
 - PMS5003 RX (Pin 5) to ESP32 TX (e.g., GPIO17)
 
-\begin{figure}[H]
-\centering
-    \includegraphics[width = \textwidth, keepaspectratio]{images/sensor_sequence_diagram.png}
-    \caption{Sequence diagram that shows how to connect sensors to ESP32}
-\end{figure}
+
+![Sensor Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/sensor_sequence_diagram.png)
 
 ## Describe the data processing techniques used to make informed decisions based on the collected data
 
@@ -104,11 +98,8 @@ There are several ways to preprocess the data collected from sensors. Below are 
 - Sensor fusion: If multiple sensors measure the same air quality parameter, we can combine their values to produce a more accurate and trustworthy estimate. Sensor fusion techniques include weighted averaging, Kalman filtering, and Bayesian fusion.
 \end{itemize}
 
-\begin{figure}[H]
-\centering
-    \includegraphics[width = \textwidth, keepaspectratio]{images/process_sequence_diagram.png}
-    \caption{Sequence diagram that shows how to extract and process the data}
-\end{figure}
+![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/process_sequence_diagram.png)
+
 
 ## Discuss communication protocols and technologies related to data transmission between components
 
