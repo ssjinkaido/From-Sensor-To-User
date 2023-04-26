@@ -57,9 +57,9 @@ The main components of the system are:
 - Machine learning/ Deep Learning algorithms for processing and analyzing data.
 
 Below illustrates two diagrams of the systems:
-![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/components_diagram.png)
+![Components Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/components_diagram.png)
 
-![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/overall_sequence_diagram.png)
+![Overall sequence diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/images/overall_sequence_diagram.png)
 
 # Implementation details
 ## Explanation of sensor selection and their specific roles in the system
@@ -85,7 +85,7 @@ We connect the PMS5003 sensor to the ESP32 as follows:
 - PMS5003 RX (Pin 5) to ESP32 TX (e.g., GPIO17)
 
 
-![Sensor Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/sensor_sequence_diagram.png)
+![Sensor Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/sensor_sequence_diagram.png)
 
 ## Describe the data processing techniques used to make informed decisions based on the collected data
 
@@ -98,7 +98,7 @@ There are several ways to preprocess the data collected from sensors. Below are 
 - Sensor fusion: If multiple sensors measure the same air quality parameter, we can combine their values to produce a more accurate and trustworthy estimate. Sensor fusion techniques include weighted averaging, Kalman filtering, and Bayesian fusion.
 \end{itemize}
 
-![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/images/process_sequence_diagram.png)
+![Sequence Diagram](https://github.com/ssjinkaido/From-Sensor-To-User/blob/master/images/process_sequence_diagram.png)
 
 
 ## Discuss communication protocols and technologies related to data transmission between components
@@ -112,3 +112,37 @@ SPI: This protocol is used for communication between the PMS5003 dust sensor and
 Wi-Fi: This protocol is used for communication between the ESP32 microcontroller to the cloud platform (Firebase).
 
 REST API: This protocol is used to extract data from the Firebase Realtime Database and convert it to a CSV file format for further processing. 
+
+# Testing and Validation
+
+Since time is limited, I do not have time to build a Flutter app to read and view historical data, as well as visualize data in the graph.
+# Conclusion
+## Evaluate the designed system's overall effectiveness in meeting real- world applications' needs
+
+The designed system for measuring air quality with sensors and storing data on Firebase for analysis and visualization via a mobile app is a partial simulation of real-world applications. The system provides real-time air quality monitoring; the sensors can precisely measure dust and Co$_{2}$ concentration. The collected data is then stored in Firebase for further processing and analysis. The user-friendly interface of the mobile application makes it simple for users to access and observe air quality data from any location. Users can view historical, real-time, and visualizations of air quality data to obtain insights and make educated decisions regarding the environment. Based on the data, environmentalists or the government can make informed decisions and develop effective solutions to address the problems caused by bad air quality. 
+
+## Comment on the advantages, limitations, and scalability of the system
+
+Advantages
+
+- It is a low-cost system that anyone could build for education or experiment inside the house.
+- The system is scalable because it can be readily expanded to cover larger areas by adding more sensors and components.
+- The system can capture data in real-time, with acceptable precision. 
+
+Limitations
+- The precision and dependability of the employed sensors limits the system. Inaccurate or malfunctioning sensors can result in inaccurate data and potentially erroneous conclusions.
+- The system's dependence on a stable internet connection can hinder locations with poor connectivity.
+- The mobile application may not be compatible with all devices, limiting the number of users accessing the data.
+
+Scalability
+- Firebase offers a scalable NoSQL database with high throughput and low latency that can manage large volumes of data. When the system grows, Firebase can still manage growing data volumes and traffic without requiring significant infrastructure modifications as the system expands.
+- The system is divided into multiple components. It allows the system to incorporate new sensors and components without affecting the rest of the system. For instance, additional sensors for other pollutants, such as volatile organic compounds or ozone, can be easily added to the system.
+- The use of REST APIs for data transmission allows for simple integration with other systems or applications. This indicates that the system can communicate and exchange data with other systems or applications, which can enhance the system's functionality and make it more useful in a variety of contexts.
+
+## Propose improvements and further development for the system in the future
+
+These are the ways that can be applied to improve the system:
+- We can integrate other sensors to measure other pollutants and compounds, such as volatile organic compounds (VOCs) and nitrogen dioxide (NO2). This could lead to an improvement in the system's ability to monitor air.
+- We can use sophisticated machine learning/ deep learning algorithms to analyze time series that could enhance the system's predictive abilities.
+- The current mobile application supports simple visualization of historical data analysis. The addition of real-time monitoring, interactive graphs, and more advanced analytics to the app's visualization capabilities would provide users with a deeper understanding of air quality trends and potential health hazards.
+
