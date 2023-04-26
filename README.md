@@ -1,4 +1,6 @@
+
 # Report From Sensor to User
+### Nguyen Xuan Tung (M22.ICT.006)
 # I. Introduction
 ## 1.1 Describe the smart decision-making model's purpose and real-world applications, and explain the system's requirements and functionalities
 
